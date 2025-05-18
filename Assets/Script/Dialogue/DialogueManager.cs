@@ -12,38 +12,45 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public float typingSpeed = 0.03f;
 
-    private List<DialogueLine> dialogueLines;
-    private int index;
+    private int index = -1;
     private bool isTyping;
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogueLine)
     {
-        dialogueLines = dialogue.lines;
-        index = 0;
         dialoguePanel.SetActive(true);
-        ShowNextLine();
+        ShowLine(dialogueLine);
     }
 
-    public void ShowNextLine()
+    public void ShowLine(Dialogue dialogueLine)
     {
+        Debug.Log($"indexn is {index}. count is {dialogueLine.lines.Count}");
+        
+        
         if (isTyping)
         {
+            dialogueText.text = dialogueLine.lines[index].line;
             StopAllCoroutines();
-            dialogueText.text = dialogueLines[index].line;
             isTyping = false;
             return;
         }
-
-        if (index < dialogueLines.Count)
+        if (index >= dialogueLine.lines.Count - 1)
         {
-            nameText.text = dialogueLines[index].characterName;
-            StartCoroutine(TypeLine(dialogueLines[index].line));
-            index++;
+            Debug.Log("inside");
+            Debug.Log("inside");
+            index = -1;
+            dialoguePanel.SetActive(false);
+            return;
         }
         else
         {
-            dialoguePanel.SetActive(false);
+            dialoguePanel.SetActive(true);
+            index++;
+            nameText.text = dialogueLine.lines[index].characterName;
+            StartCoroutine(TypeLine(dialogueLine.lines[index].line));
+            
+
         }
+        
     }
 
     IEnumerator TypeLine(string line)
