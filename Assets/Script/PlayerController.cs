@@ -21,11 +21,11 @@ public class PlayerController : MonoBehaviour
     {
         float move = Input.GetAxis("Horizontal");
 
-        rb.velocity = new Vector2(moveSpeed* Input.GetAxisRaw("Horizontal") + move, rb.velocity.y);
+        rb.linearVelocity = new Vector2(moveSpeed* Input.GetAxisRaw("Horizontal") + move, rb.linearVelocity.y);
         
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
     void OnCollisionEnter2D(Collision2D other)
