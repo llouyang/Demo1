@@ -15,13 +15,13 @@ public class DialogueManager : MonoBehaviour
     private int index = -1;
     private bool isTyping;
 
-    public void StartDialogue(Dialogue dialogueLine)
+    public void StartDialogue(DialogueData dialogueLine)
     {
         dialoguePanel.SetActive(true);
         ShowLine(dialogueLine);
     }
 
-    public void ShowLine(Dialogue dialogueLine)
+    public void ShowLine(DialogueData dialogueLine)
     {
         Debug.Log($"indexn is {index}. count is {dialogueLine.lines.Count}");
         
