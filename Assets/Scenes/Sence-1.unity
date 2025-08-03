@@ -307,7 +307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8a5445591adb24aa9fb8833adfc59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 4668316a870f56f4593606b3fa468846, type: 2}
+  dialogue:
+    lines: []
+  fileName: TestDia.json
   dialogueManager: {fileID: 1732231847}
 --- !u!61 &173877877
 BoxCollider2D:
@@ -1500,7 +1502,7 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1128596703}
   dialogueText: {fileID: 457688193}
   nameText: {fileID: 1060586629}
-  typingSpeed: 10
+  typingSpeed: 100000
 --- !u!4 &1732231848
 Transform:
   m_ObjectHideFlags: 0
