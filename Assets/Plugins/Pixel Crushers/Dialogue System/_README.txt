@@ -1,7 +1,6 @@
-/*
 ------------------------------
   Dialogue System for Unity  
-       Version 2.2.56
+      Version 2.2.64.1
         
   Copyright © Pixel Crushers
 ------------------------------
@@ -18,13 +17,16 @@ Getting Started:
 ----------------
 o Follow the 5 minute quick start guide in the Getting Started section of the manual.
 o Read the documentation and/or watch the tutorial videos.
-o Play the scene in the Demo folder.
+o Play the scene in the Demo folder. (URP or HDRP? See below.)
+o IMPORTANT NOTE FOR URP/HRDP:
+  The demo defaults to the built-in rendering pipeline. If you're using URP or HDRP,
+  first import the corresponding unitypackage file located in the Demo folder.
 o IMPORTANT NOTE FOR 2D:
   If you want to use 2D physics you must define scripting symbol USE_PHYSICS2D.
   (Tick checkbox in Tools > Pixel Crushers > Dialogue System > Welcome Window.)
-o IMPORTANT NOTE FOR TEXTMESH PRO:
+o IMPORTANT NOTE FOR TEXTMESH PRO (pre-Unity 6):
   If you want to use TextMesh Pro you must define scripting symbol TMP_PRESENT.
-  (Tick checkbox in Tools > Pixel Crushers > Dialogue System > Welcome Window.)
+  (Tools > Pixel Crushers > Common > Misc > Enable TextMesh Pro Support)
 
 
 Documentation:
@@ -49,9 +51,8 @@ Need Help?
 o Check the FAQ for solutions to common questions: Tools > Pixel Crushers > Dialogue System > Help.
 o Email: support@pixelcrushers.com
 o Web: Tools > Pixel Crushers > Dialogue System > Help > Report a Bug.
-o Forum: https://pixelcrushers.com/phpbb/
+o Forum: https://forum.pixelcrushers.com/
 o Discord: https://discord.gg/FwUaCNt
 
 We do our very best to reply to all emails within 24 hours. If you haven't received
 a reply within 24 hours, please check your spam folder.
-*/

@@ -74,6 +74,11 @@ namespace PixelCrushers.DialogueSystem
                 for (int i = 0; i < ui.conversationUIElements.subtitlePanels.Length; i++)
                 {
                     var subtitlePanel = ui.conversationUIElements.subtitlePanels[i];
+                    if (subtitlePanel == null)
+                    {
+                        data.panelOpenOnActorName[i] = null;
+                        continue;
+                    }
                     if (!subtitlePanel.isOpen && 0 <= i && i < data.panelOpenOnActorName.Count)
                     {
                         data.panelOpenOnActorName[i] = null;
@@ -123,21 +128,24 @@ namespace PixelCrushers.DialogueSystem
                         var dialogueActor = (panelActorTransform != null) ? panelActorTransform.GetComponent<DialogueActor>() : null;
                         var panelActor = DialogueManager.masterDatabase.GetActor(data.panelOpenOnActorName[i]);
                         Sprite portraitSprite = (panelActor != null) ? panelActor.GetPortraitSprite() : null;
-                        string portraitName = data.panelOpenOnActorName[i];
+                        string portraitActorName = data.panelOpenOnActorName[i];
+                        string displayName = portraitActorName;
                         if (dialogueActor != null)
                         {
                             var dialogueActorSprite = dialogueActor.GetPortraitSprite();
                             if (dialogueActorSprite != null) portraitSprite = dialogueActorSprite;
-                            portraitName = dialogueActor.GetActorName();
+                            portraitActorName = dialogueActor.actor;
+                            displayName = dialogueActor.GetActorName();
                         }
                         else if (panelActor != null)
                         {
                             portraitSprite = panelActor.GetPortraitSprite();
-                            portraitName = CharacterInfo.GetLocalizedDisplayNameInDatabase(portraitName);
+                            portraitActorName = panelActor.Name;
+                            displayName = CharacterInfo.GetLocalizedDisplayNameInDatabase(portraitActorName);
                         }
                         if (!subtitlePanel.isOpen)
                         {
-                            subtitlePanel.OpenOnStartConversation(portraitSprite, portraitName, dialogueActor);
+                            subtitlePanel.OpenOnStartConversation(portraitSprite, portraitActorName, displayName, dialogueActor);
                         }
                     }
                     if (subtitlePanel.accumulateText)

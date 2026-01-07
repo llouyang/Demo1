@@ -788,8 +788,43 @@ public class ES3
     public static Texture2D LoadImage(byte[] bytes)
     {
         var texture = new Texture2D(1, 1);
-        texture.LoadImage(bytes);
+        LoadImageInto(texture, bytes);
         return texture;
+    }
+
+    /// <summary>Loads a PNG or JPG as a Texture2D.</summary>
+    /// <param name="texture">The Texture2D to load the image into.</param>
+    /// <param name="imagePath">The relative or absolute path of the PNG or JPG file we want to load as a Texture2D.</param>
+    /// <param name="settings">The settings we want to use to override the default settings.</param>
+    public static void LoadImageInto(Texture2D texture, string imagePath)
+    {
+        LoadImageInto(texture, new ES3Settings(imagePath));
+    }
+
+    /// <summary>Loads a PNG or JPG as a Texture2D.</summary>
+    /// <param name="texture">The Texture2D to load the image into.</param>
+    /// <param name="imagePath">The relative or absolute path of the PNG or JPG file we want to load as a Texture2D.</param>
+    /// <param name="settings">The settings we want to use to override the default settings.</param>
+    public static void LoadImageInto(Texture2D texture, string imagePath, ES3Settings settings)
+    {
+        LoadImageInto(texture, new ES3Settings(imagePath, settings));
+    }
+
+    /// <summary>Loads a PNG or JPG as a Texture2D.</summary>
+    /// <param name="texture">The Texture2D to load the image into.</param>
+    /// <param name="settings">The settings we want to use to override the default settings.</param>
+    public static void LoadImageInto(Texture2D texture, ES3Settings settings)
+    {
+        byte[] bytes = ES3.LoadRawBytes(settings);
+        LoadImageInto(texture, bytes);
+    }
+
+    /// <summary>Loads a PNG or JPG as a Texture2D.</summary>
+    /// <param name="texture">The Texture2D to load the image into.</param>
+    /// <param name="bytes">The raw bytes of the PNG or JPG.</param>
+    public static void LoadImageInto(Texture2D texture, byte[] bytes)
+    {
+        texture.LoadImage(bytes);
     }
 
     /// <summary>Loads an audio file as an AudioClip. Note that MP3 files are not supported on standalone platforms and Ogg Vorbis files are not supported on mobile platforms.</summary>

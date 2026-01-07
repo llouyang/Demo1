@@ -1375,7 +1375,11 @@ namespace PixelCrushers.DialogueSystem.DialogueEditor
             return IsModifierDown(EventModifiers.Alt);
         }
 
-        private void SetCurrentEntry(DialogueEntry entry)
+        /// <summary>
+        /// Sets the current entry that's being inspected.
+        /// </summary>
+        /// <param name="entry"></param>
+        public void SetCurrentEntry(DialogueEntry entry)
         {
             if (entry != null && currentConversation != null && entry.conversationID != currentConversation.id)
             {
@@ -1393,7 +1397,7 @@ namespace PixelCrushers.DialogueSystem.DialogueEditor
             UpdateEntrySelection();
         }
 
-        private void CenterOnCurrentEntry()
+        public void CenterOnCurrentEntry()
         {
             if (currentEntry == null) return;
             var rect = currentEntry.canvasRect;
@@ -1963,6 +1967,7 @@ namespace PixelCrushers.DialogueSystem.DialogueEditor
                 }
                 DialogueEntry entry = currentConversation.dialogueEntries.Find(x => x.id == entryToDelete.id);
                 currentConversation.dialogueEntries.Remove(entry);
+                inspectorSelection = currentConversation;
                 InitializeDialogueTree();
                 ResetDialogueEntryText();
                 Repaint();
@@ -2300,7 +2305,7 @@ namespace PixelCrushers.DialogueSystem.DialogueEditor
 
         private void SplitPipesIntoEntries(object data)
         {
-            currentConversation.SplitPipesIntoEntries(true, trimWhitespaceAroundPipes);
+            currentConversation.SplitPipesIntoEntries(true, trimWhitespaceAroundPipes, null, prefs.alternateActorsAtPipes);
             InitializeDialogueTree();
             ResetDialogueEntryText();
             Repaint();

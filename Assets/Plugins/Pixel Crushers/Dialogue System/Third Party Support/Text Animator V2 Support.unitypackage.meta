@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: eaec74a0f21dda84f946ae0ea6d36948
+timeCreated: 1589555711
+licenseType: Store
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 11672
+  packageName: Dialogue System for Unity
+  packageVersion: 2.2.64.1
+  assetPath: Assets/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Text
+    Animator V2 Support.unitypackage
+  uploadId: 843882
