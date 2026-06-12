@@ -8,25 +8,37 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 1f;
 
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
     private bool isGrounded;
+    private float horizontalInput;
     
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float move = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        rb.linearVelocity = new Vector2(moveSpeed* Input.GetAxisRaw("Horizontal") + move, rb.linearVelocity.y);
+        if (horizontalInput != 0f && spriteRenderer != null)
+        {
+            spriteRenderer.flipX = horizontalInput < 0f;
+        }
         
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
+    }
+
+    void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(moveSpeed * horizontalInput, rb.linearVelocity.y);
     }
     void OnCollisionEnter2D(Collision2D other)
     {

@@ -1,0 +1,11 @@
+{
+  "$type": "Articy.VoExtension.VoExtensionProjectSettings, Articy.VoExtension",
+  "MarkAssignedAudioAsFinal": true,
+  "AlwaysGenerateAudioTextState": false,
+  "AlwaysGenerateAudioAudioState": false,
+  "SkipSpeakersWithoutVoiceLibrary": false,
+  "SelectedLanguages": {
+    "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "$values": []
+  }
+}

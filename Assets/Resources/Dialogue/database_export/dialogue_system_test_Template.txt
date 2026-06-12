@@ -1,0 +1,42 @@
+Required Chat Mapper Template Fields for: D:\Game\Demo1\Assets\Resources\Dialogue\database_export\dialogue_system_test.xml
+
+ACTORS (in this order):
+[1] Name: Text
+[2] Pictures: Files
+[3] Description: Text
+[4] IsPlayer: Boolean
+[5] Display Name: Text
+
+ITEMS (in this order):
+[1] Name: Text
+[2] Pictures: Files
+[3] Description: Text
+[4] Is Item: Boolean
+
+LOCATIONS (in this order):
+[1] Name: Text
+[2] Description: Text
+
+USER VARIABLES (in this order):
+[1] Name: Text
+[2] Initial Value: Text
+[3] Description: Text
+
+CONVERSATIONS (in this order):
+[1] Title: Text
+[2] Description: Text
+[3] Actor: Actor
+[4] Conversant: Actor
+
+DIALOGUE NODES (in this order):
+[1] Title: Text
+[2] Description: Text
+[3] Actor: Actor
+[4] Conversant: Actor
+[5] Menu Text: Text
+[6] Dialogue Text: Text
+[7] Sequence: Text
+[8] canvasRect: Text
+[9] : Text
+[10] Audio Files: Text
+[11] Response Menu Sequence: Text
